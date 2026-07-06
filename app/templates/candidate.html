@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+            <h3>Candidate Details</h3>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Name</th>
+                    <td>{{ candidate.name }}</td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td>{{ candidate.email }}</td>
+                </tr>
+
+                <tr>
+                    <th>Phone</th>
+                    <td>{{ candidate.phone }}</td>
+                </tr>
+
+                <tr>
+                    <th>Skills</th>
+                    <td>{{ candidate.skills }}</td>
+                </tr>
+
+                <tr>
+                    <th>Score</th>
+                    <td>{{ candidate.score }}%</td>
+                </tr>
+
+                <tr>
+                    <th>Resume File</th>
+                    <td>{{ candidate.resume_file }}</td>
+                </tr>
+
+            </table>
+
+            <a href="/ranking" class="btn btn-secondary">
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

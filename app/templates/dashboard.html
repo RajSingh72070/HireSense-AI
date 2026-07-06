@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">Dashboard</h1>
+
+    <div class="row mb-4">
+
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h3>{{ jobs_count }}</h3>
+                <p>Jobs Created</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h3>{{ resumes_count }}</h3>
+                <p>Resumes</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h3>{{ shortlisted }}</h3>
+                <p>Shortlisted</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h3>{{ average_score }}%</h3>
+                <p>Average Score</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h4 class="mb-0">
+                Quick Actions
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="d-grid gap-3">
+
+                <a href="/jobs" class="btn btn-primary btn-lg">
+                    ➕ Create Job
+                </a>
+
+                <a href="/upload" class="btn btn-success btn-lg">
+                    📄 Upload Resumes
+                </a>
+
+                <a href="/ranking" class="btn btn-warning btn-lg">
+                    🏆 View Candidate Ranking
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

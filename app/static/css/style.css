@@ -1,0 +1,55 @@
+/* ---------- Global ---------- */
+
+body{
+    background:#F4F7FC;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ---------- Login Page ---------- */
+
+.login-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-card{
+
+    width:450px;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:16px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+    text-align:center;
+}
+
+.logo{
+
+    color:#2563EB;
+
+    font-size:42px;
+
+    font-weight:bold;
+}
+
+.tagline{
+
+    color:#64748B;
+
+    margin-bottom:35px;
+}
+
+/* ---------- Cards ---------- */
+
+.card{
+
+    border:none;
+
+    border-radius:15px;
+}

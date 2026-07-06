@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+<div class="card shadow p-4">
+
+<h2 class="mb-4 text-primary">
+
+Create Job Profile
+
+</h2>
+
+<form action="/jobs/create" method="post">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Job Title
+
+</label>
+
+<input
+
+class="form-control"
+
+name="job_title"
+
+required
+
+>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="mb-3">
+
+<label>
+
+Department
+
+</label>
+
+<input
+
+class="form-control"
+
+name="department"
+
+required
+
+>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="mb-3">
+
+<label>
+
+Location
+
+</label>
+
+<input
+
+class="form-control"
+
+name="location"
+
+required
+
+>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="mb-3">
+
+<label>
+
+Experience
+
+</label>
+
+<input
+
+class="form-control"
+
+name="experience"
+
+required
+
+>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="mb-3">
+
+<label>
+
+Education
+
+</label>
+
+<input
+
+class="form-control"
+
+name="education"
+
+required
+
+>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label>
+
+Required Skills
+
+</label>
+
+<textarea
+
+class="form-control"
+
+rows="4"
+
+name="required_skills"
+
+required
+
+></textarea>
+
+</div>
+
+<div class="mb-3">
+
+<label>
+
+Preferred Skills
+
+</label>
+
+<textarea
+
+class="form-control"
+
+rows="4"
+
+name="preferred_skills"
+
+></textarea>
+
+</div>
+
+<div class="mb-3">
+
+<label>
+
+Job Description
+
+</label>
+
+<textarea
+
+class="form-control"
+
+rows="7"
+
+name="job_description"
+
+required
+
+></textarea>
+
+</div>
+
+<button
+
+class="btn btn-primary w-100"
+
+type="submit"
+
+>
+
+Save Job Profile
+
+</button>
+
+</form>
+
+<hr>
+
+<h3>
+
+Saved Jobs
+
+</h3>
+
+<table class="table table-striped">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Title</th>
+
+<th>Department</th>
+
+<th>Location</th>
+
+<th>Experience</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{job.id}}</td>
+
+<td>{{job.job_title}}</td>
+
+<td>{{job.department}}</td>
+
+<td>{{job.location}}</td>
+
+<td>{{job.experience}}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

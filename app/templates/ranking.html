@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h3 class="mb-0">
+                Candidate Ranking
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+            <a href="/export" class="btn btn-success mb-3">
+                Export CSV
+            </a>
+            <table class="table table-bordered table-hover align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>Rank</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Phone</th>
+
+                        <th>Skills</th>
+
+                        <th>Match %</th>
+
+                        <th>Resume</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% if candidates %}
+
+                    {% for candidate in candidates %}
+
+                    <tr>
+
+                        <td>{{ loop.index }}</td>
+
+                        <td>{{ candidate.name }}</td>
+
+                        <td>{{ candidate.email }}</td>
+
+                        <td>{{ candidate.phone }}</td>
+
+                        <td>{{ candidate.skills }}</td>
+
+                        <td>
+
+                            <span class="badge bg-success fs-6">
+
+                                {{ candidate.score }}%
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            {{ candidate.resume_file }}
+
+                        </td>
+                        <td>
+
+                            <a
+                                href="/candidate/{{ candidate.id }}"
+                                class="btn btn-primary btn-sm">
+
+                                View Details
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td colspan="7" class="text-center">
+
+                            No Candidates Uploaded
+
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

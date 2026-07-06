@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-4">
+
+Upload Resumes
+
+</h2>
+
+<form action="/resumes/upload" method="post" enctype="multipart/form-data">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Select Job
+
+</label>
+
+<select class="form-select" name="job_id">
+
+{% for job in jobs %}
+
+<option value="{{job.id}}">
+
+{{job.job_title}}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Upload Multiple Resumes
+
+</label>
+
+<input
+
+type="file"
+
+class="form-control"
+
+name="files"
+
+multiple
+
+accept=".pdf,.docx"
+
+required
+
+>
+
+</div>
+
+<button
+
+class="btn btn-success w-100"
+
+type="submit"
+
+>
+
+Upload Resumes
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

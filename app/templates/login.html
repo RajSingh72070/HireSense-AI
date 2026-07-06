@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <h1 class="logo">HireSense AI</h1>
+
+        <p class="tagline">
+            Smart Hiring Powered by Artificial Intelligence
+        </p>
+
+        <form action="/dashboard" method="get">
+
+            <input
+                class="form-control mb-3"
+                placeholder="Username">
+
+            <input
+                type="password"
+                class="form-control mb-3"
+                placeholder="Password">
+
+            <button
+                type="submit"
+                class="btn btn-primary w-100">
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
