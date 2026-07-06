@@ -1,3 +1,4 @@
+import os
 import logging
 logging.basicConfig(
     filename="logs/app.log",
