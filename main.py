@@ -35,12 +35,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-@app.get("/")
-def root():
-    return {
-        "message": "HireSense AI API is running successfully 🚀"
-    }
-
 # Mount static files
 app.mount(
     "/static",
