@@ -5,22 +5,30 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(message)s"
 )
 
-print("1")
-
 from fastapi import FastAPI
-print("2")
+from fastapi.staticfiles import StaticFiles
 
 from app.database.database import Base, engine
-print("3")
-
 from app.database import models
-print("4")
+
+from app.routers.login import router as login_router
+# from app.routers.dashboard import router as dashboard_router
+# from app.routers.jobs import router as jobs_router
+# from app.routers.resumes import router as resume_router
+# from app.routers.ranking import router as ranking_router
+# from app.routers.export import router as export_router
 
 Base.metadata.create_all(bind=engine)
-print("5")
 
-app = FastAPI()
+app = FastAPI(
+    title="HireSense AI",
+    version="1.0.0"
+)
 
-@app.get("/")
-def home():
-    return {"status": "working"}
+app.mount(
+    "/static",
+    StaticFiles(directory="app/static"),
+    name="static"
+)
+
+app.include_router(login_router)
