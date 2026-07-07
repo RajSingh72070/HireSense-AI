@@ -3,7 +3,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 class SemanticMatcher:
-
     _model = None
 
     @classmethod
@@ -12,18 +11,13 @@ class SemanticMatcher:
             cls._model = SentenceTransformer("all-MiniLM-L6-v2")
         return cls._model
 
-    @staticmethod
-    def similarity(job_description, resume_text):
-
-        model = SemanticMatcher.get_model()
+    @classmethod
+    def similarity(cls, job_description, resume_text):
+        model = cls.get_model()
 
         job_vector = model.encode([job_description])
-
         resume_vector = model.encode([resume_text])
 
-        similarity = cosine_similarity(
-            job_vector,
-            resume_vector
-        )
+        score = cosine_similarity(job_vector, resume_vector)
 
-        return round(float(similarity[0][0]) * 100, 2)
+        return round(float(score[0][0]) * 100, 2)
