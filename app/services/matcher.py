@@ -2,13 +2,20 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-
-
 class SemanticMatcher:
+
+    _model = None
+
+    @classmethod
+    def get_model(cls):
+        if cls._model is None:
+            cls._model = SentenceTransformer("all-MiniLM-L6-v2")
+        return cls._model
 
     @staticmethod
     def similarity(job_description, resume_text):
+
+        model = SemanticMatcher.get_model()
 
         job_vector = model.encode([job_description])
 
